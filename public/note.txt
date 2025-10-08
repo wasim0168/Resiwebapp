@@ -1,0 +1,27 @@
+
+Gradient Background Color 
+<div class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+  <h1 class="text-white text-4xl font-bold">Gradient Background</h1>
+</div>
+
+bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100
+
+
+
+
+
+Gradient Text Color 
+bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent
+
+
+{/* Animated Grid Lines Pasttern For Hero section  */}
+     <div className="absolute inset-0 opacity-10">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+            backgroundSize: '50px 50px',
+            animation: 'gridMove 20s linear infinite'
+          }}>
+        </div>
+      </div>
