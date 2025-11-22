@@ -45,23 +45,39 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert('Message sent successfully! We will get back to you soon.');
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const res = await fetch("http://localhost:5000/contact", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert("Message sent successfully!");
       setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        serviceType: ''
+        fullName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        serviceType: ""
       });
-    }, 2000);
-  };
+    } else {
+      alert("Failed to send message!");
+    }
+
+  } catch (err) {
+    alert("Something went wrong");
+  }
+
+  setIsSubmitting(false);
+};
+
 
   const containerVariants = {
     hidden: { opacity: 0 },

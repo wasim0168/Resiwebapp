@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-    domains: [], // Add any external domains if needed
+   output: 'export',
+   images: {
+    unoptimized: true,
   },
 };
+
+
 
 export default nextConfig;
